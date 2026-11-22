@@ -55,12 +55,31 @@ docs/               Logo, slides and notes
 
 ### Running
 
-Requires GHC and Cabal.
+Requires GHC and Cabal (tested with GHC 9.10.3 and cabal-install 3.16.1.0, on Windows). The first run downloads the `random` package, so it needs an internet connection.
 
 ```
 cabal build
 cabal run linear-q-pricing
 ```
+
+The run is reproducible: the random seed is fixed. Small differences in the decimals may appear with other versions of `random`. At the end, the program writes `curva_aprendizado.csv` (one row per training episode) in the current folder.
+
+### Results
+
+3000 training episodes, then 500 out-of-sample test flights (alpha = 0.005, gamma = 0.99).
+
+| Policy | Mean revenue (R$) | Occupancy |
+|---|---|---|
+| Random (baseline) | 46,596 | 100.0% |
+| Always promotional (R$ 300) | 30,000 | 100.0% |
+| Always standard (R$ 550) | 55,000 | 100.0% |
+| Always premium (R$ 900) | 63,131 | 70.1% |
+| **Linear Q-Learning** | **63,702** | 73.7% |
+| Standard until 15 days left, then premium | 66,705 | 92.1% |
+
+The learned policy earns **+36.71%** over the random baseline and beats the single-price rules. It stays about 4.5% below the hand-written rule that switches price 15 days before takeoff. A linear model with 5 features per action approximates a step change in time poorly, which points to richer features as future work.
+
+![Learning curve](docs/curva-aprendizado.png)
 
 ### Status
 
@@ -119,12 +138,31 @@ docs/               Logo, slides e anotações
 
 ### Execução
 
-Requer GHC e Cabal.
+Requer GHC e Cabal (testado com GHC 9.10.3 e cabal-install 3.16.1.0, no Windows). A primeira execução baixa o pacote `random`, então precisa de internet.
 
 ```
 cabal build
 cabal run linear-q-pricing
 ```
+
+A execução é reproduzível: a semente aleatória é fixa. Pode haver pequenas diferenças nos decimais com outras versões do `random`. No final, o programa grava o `curva_aprendizado.csv` (uma linha por episódio de treinamento) na pasta atual.
+
+### Resultados
+
+3000 episódios de treinamento e depois 500 voos de teste fora da amostra (alpha = 0,005, gamma = 0,99).
+
+| Política | Receita média (R$) | Ocupação |
+|---|---|---|
+| Aleatória (baseline) | 46.596 | 100,0% |
+| Sempre promocional (R$ 300) | 30.000 | 100,0% |
+| Sempre padrão (R$ 550) | 55.000 | 100,0% |
+| Sempre premium (R$ 900) | 63.131 | 70,1% |
+| **Linear Q-Learning** | **63.702** | 73,7% |
+| Padrão até faltarem 15 dias, depois premium | 66.705 | 92,1% |
+
+A política aprendida rende **+36,71%** sobre a aleatória e supera as regras de preço único. Fica cerca de 4,5% abaixo da regra manual que troca o preço 15 dias antes da decolagem. Um modelo linear com 5 características por ação aproxima mal uma troca em degrau no tempo, o que aponta características mais ricas como trabalho futuro.
+
+![Curva de aprendizado](docs/curva-aprendizado.png)
 
 ### Status
 

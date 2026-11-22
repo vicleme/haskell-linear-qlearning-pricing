@@ -4,3 +4,4 @@ dist-newstyle/
 *.exe
 curva_aprendizado.csv
 .vscode/
+saida.txt
