@@ -13,7 +13,6 @@ import Features
 
 predictQ :: WeightVector -> State -> Action -> Double
 predictQ weights state action =
-    --Não esquecer que phi são os pesos
     let !phi = extractFeatures state action
     in dotProduct weights phi
 
