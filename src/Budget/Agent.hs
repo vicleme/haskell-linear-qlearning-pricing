@@ -2,7 +2,8 @@ module Agent
 ( predictQ,
 bestAction,
 maxQValue,
-chooseAction
+chooseAction,
+updateWeights
 ) where
 
 import Data.List(foldl1')
@@ -34,3 +35,23 @@ chooseAction weights epsilon state gen0 =
         then let (!idx, !gen2) = randomR (0,length allActions - 1) gen1
             in (allActions !! idx, gen2)
         else (fst (bestAction weights state), gen1)
+
+updateWeights :: 
+    HyperParams
+    -> WeightVector
+    -> State
+    -> Action
+    -> Double
+    -> State
+    -> Bool
+    -> WeightVector
+updateWeights hp weights state action reward nextState isTerminal =
+    let !alpha = hpAlpha hp
+        !gamma = hpGamma hp
+        !phi = extractFeatures state action
+        !currentQ = dotProduct weights phi
+        !nextMaxQ = if isTerminal then 0.0 else maxQValue weights nextState
+        !target = reward + gamma * nextMaxQ
+        !tdError = target - currentQ
+        !stepVec = vecScale (alpha * tdError) phi
+    in vecAdd weights stepVec
