@@ -11,7 +11,6 @@ module Features
   , vecScale
   ) where
 
-import Data.List (foldl')
 import Types
 
 -- | Número de características base extraídas do estado contínuo s:
