@@ -1,0 +1,6 @@
+dist-newstyle/
+*.o
+*.hi
+*.exe
+curva_aprendizado.csv
+.vscode/
