@@ -6,6 +6,7 @@ chooseAction,
 updateWeights
 ) where
 
+--Imports
 import Data.List(foldl1')
 import System.Random (StdGen, randomR)
 import Types
