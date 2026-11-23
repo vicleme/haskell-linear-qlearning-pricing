@@ -2,6 +2,9 @@ dist-newstyle/
 *.o
 *.hi
 *.exe
-curva_aprendizado.csv
 .vscode/
-saida.txt
+
+# Files generated when running from the repository root
+# (the sample versions are kept in examples/)
+/curva_aprendizado.csv
+/saida.txt

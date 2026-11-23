@@ -1,0 +1,60 @@
+﻿======================================================================
+  LINEAR Q-LEARNING EM HASKELL: PRECIFICACAO DINAMICA DE PASSAGENS
+======================================================================
+Configuracao do Voo : 100 assentos | Horizonte de 30 dias
+Hiperparametros     : alpha=0.0050 | gamma=0.99 | episodios=3000
+
+1. EVOLUCAO DO TREINAMENTO (MEDIAS POR BLOCO DE 500 EPISODIOS)
+----------------------------------------------------------------------
+  Episodios      | Receita Media (R$) | Assentos Vendidos | Epsilon
+----------------------------------------------------------------------
+     1 a  500    |    R$   53554.20   |       99.0 / 100  |  0.4728
+   501 a 1000    |    R$   62033.70   |       91.1 / 100  |  0.2232
+  1001 a 1500    |    R$   63194.10   |       81.0 / 100  |  0.1054
+  1501 a 2000    |    R$   63130.70   |       75.3 / 100  |  0.0500
+  2001 a 2500    |    R$   63055.90   |       73.6 / 100  |  0.0500
+  2501 a 3000    |    R$   63112.70   |       74.0 / 100  |  0.0500
+
+2. BENCHMARK DE DESEMPENHO (500 VOOS DE TESTE FORA DA AMOSTRA)
+----------------------------------------------------------------------
+  Politica Aleatoria (Baseline) : R$   46596.40 | Ocupacao: 100.0%
+  Politica Linear Q-Learning    : R$   63701.60 | Ocupacao:  73.7%
+  Ganho de Receita Obtido       : +36.71%
+
+3. REFERENCIAS: REGRAS DE PRECO FIXAS (MESMOS 500 VOOS DE TESTE)
+----------------------------------------------------------------------
+  Sempre Promocional (R$ 300)                  : R$   30000.00 | Ocupacao: 100.0%
+  Sempre Padrao (R$ 550)                       : R$   55000.00 | Ocupacao: 100.0%
+  Sempre Premium (R$ 900)                      : R$   63131.40 | Ocupacao:  70.1%
+  Padrao ate faltarem 15 dias, depois Premium  : R$   66705.40 | Ocupacao:  92.1%
+
+4. VETOR DE PESOS FINAIS APRENDIDOS (w)
+----------------------------------------------------------------------
+
+  Acao: PrecoPromocional   (Tarifa: R$ 300.00)
+  --------------------------------------------------------
+    Bias (Intercepto Base)               : +11888.676
+    Estoque Restante (sRatio)            : +22212.742
+    Tempo Restante (tRatio)              : +20920.213
+    Demanda Observada (Demand)           :  -1664.356
+    Escassez x Urgencia ((1-s)*(1-t))    : -14444.410
+
+  Acao: PrecoPadrao        (Tarifa: R$ 550.00)
+  --------------------------------------------------------
+    Bias (Intercepto Base)               : +12032.361
+    Estoque Restante (sRatio)            : +22062.339
+    Tempo Restante (tRatio)              : +20967.759
+    Demanda Observada (Demand)           :  -1203.558
+    Escassez x Urgencia ((1-s)*(1-t))    : -15184.981
+
+  Acao: PrecoPremium       (Tarifa: R$ 900.00)
+  --------------------------------------------------------
+    Bias (Intercepto Base)               : +13740.651
+    Estoque Restante (sRatio)            : +22056.269
+    Tempo Restante (tRatio)              : +17705.434
+    Demanda Observada (Demand)           :  +1089.994
+    Escassez x Urgencia ((1-s)*(1-t))    : -22009.839
+
+----------------------------------------------------------------------
+Arquivo 'curva_aprendizado.csv' exportado com sucesso (3000 registros).
+======================================================================
