@@ -8,6 +8,7 @@ module Metrics
   , formatWeightsReport
   ) where
 
+import Data.List (foldl')
 import Text.Printf (printf)
 import Types
 import Features (featuresPerAction, featureNames)
