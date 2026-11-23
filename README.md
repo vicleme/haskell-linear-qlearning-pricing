@@ -51,7 +51,7 @@ src/
   Features.hs       Feature vector phi(s, a) and vector operations
   Agent.hs          Q prediction, epsilon-greedy policy and weight update
   Metrics.hs        Averages, block summaries, CSV export and weights report
-data/               Reserved for input files (the demo simulates its own data)
+examples/           Sample output of one run (terminal report and learning curve CSV)
 docs/               Slides (PPTX and PDF), logo and learning curve chart
 ```
 
@@ -64,7 +64,7 @@ cabal build
 cabal run linear-q-pricing
 ```
 
-The run is reproducible: the random seed is fixed. Small differences in the decimals may appear with other versions of `random`. At the end, the program writes `curva_aprendizado.csv` (one row per training episode) in the current folder.
+There is no input dataset: the flight simulator generates the data on every run. The run is reproducible: the random seed is fixed. Small differences in the decimals may appear with other versions of `random`. At the end, the program writes `curva_aprendizado.csv` (one row per training episode) in the current folder. A sample of the terminal output and of this CSV is in `examples/`.
 
 ### Results
 
@@ -138,7 +138,7 @@ src/
   Features.hs       Vetor de características phi(s, a) e operações vetoriais
   Agent.hs          Predição de Q, política epsilon-greedy e atualização dos pesos
   Metrics.hs        Médias, resumo por blocos, exportação de CSV e relatório dos pesos
-data/               Reservada para arquivos de entrada (a demonstração simula os próprios dados)
+examples/           Exemplo de saída de uma execução (relatório no terminal e CSV da curva de aprendizado)
 docs/               Slides (PPTX e PDF), logo e gráfico da curva de aprendizado
 ```
 
@@ -151,7 +151,7 @@ cabal build
 cabal run linear-q-pricing
 ```
 
-A execução é reproduzível: a semente aleatória é fixa. Pode haver pequenas diferenças nos decimais com outras versões do `random`. No final, o programa grava o `curva_aprendizado.csv` (uma linha por episódio de treinamento) na pasta atual.
+Não há dataset de entrada: o simulador de voo gera os dados a cada execução. A execução é reproduzível: a semente aleatória é fixa. Pode haver pequenas diferenças nos decimais com outras versões do `random`. No final, o programa grava o `curva_aprendizado.csv` (uma linha por episódio de treinamento) na pasta atual. Um exemplo da saída no terminal e desse CSV está em `examples/`.
 
 ### Resultados
 
