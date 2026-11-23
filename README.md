@@ -1,5 +1,7 @@
 # haskell-linear-qlearning-pricing
 
+<p align="center"><img src="docs/logo-linear-q-pricing.png" alt="Linear Q Pricing logo" width="320"></p>
+
 [English](#english) | [Português](#português)
 
 ---
@@ -49,8 +51,8 @@ src/
   Features.hs       Feature vector phi(s, a) and vector operations
   Agent.hs          Q prediction, epsilon-greedy policy and weight update
   Metrics.hs        Averages, block summaries, CSV export and weights report
-data/               Example data used in the demo
-docs/               Logo, slides and notes
+data/               Reserved for input files (the demo simulates its own data)
+docs/               Slides (PPTX and PDF), logo and learning curve chart
 ```
 
 ### Running
@@ -81,9 +83,13 @@ The learned policy earns **+36.71%** over the random baseline and beats the sing
 
 ![Learning curve](docs/curva-aprendizado.png)
 
+### Slides
+
+Presentation slides: [PDF](docs/linear-q-learning-haskell-slides.pdf) | [PPTX](docs/linear-q-learning-haskell-slides.pptx).
+
 ### Status
 
-Work in progress. Modules are being added by each team member.
+Complete. All modules are implemented and the demo runs end to end, printing the training summary, the benchmark and the learned weights, and exporting the learning curve.
 
 ---
 
@@ -132,8 +138,8 @@ src/
   Features.hs       Vetor de características phi(s, a) e operações vetoriais
   Agent.hs          Predição de Q, política epsilon-greedy e atualização dos pesos
   Metrics.hs        Médias, resumo por blocos, exportação de CSV e relatório dos pesos
-data/               Dados de exemplo usados na demonstração
-docs/               Logo, slides e anotações
+data/               Reservada para arquivos de entrada (a demonstração simula os próprios dados)
+docs/               Slides (PPTX e PDF), logo e gráfico da curva de aprendizado
 ```
 
 ### Execução
@@ -164,6 +170,10 @@ A política aprendida rende **+36,71%** sobre a aleatória e supera as regras de
 
 ![Curva de aprendizado](docs/curva-aprendizado.png)
 
+### Slides
+
+Slides da apresentação: [PDF](docs/linear-q-learning-haskell-slides.pdf) | [PPTX](docs/linear-q-learning-haskell-slides.pptx).
+
 ### Status
 
-Em desenvolvimento. Os módulos estão sendo adicionados por cada integrante.
+Concluído. Todos os módulos estão implementados e a demonstração roda de ponta a ponta, imprimindo o resumo do treino, o benchmark e os pesos aprendidos, e exportando a curva de aprendizado.
